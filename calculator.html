@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="calculator.css" />
+    <title>Imperial To Metric Height Conversion</title>
+  </head>
+  <body>
+    Please enter your height:
+    <form id="calculator">
+      <input type="text" id="ft" name="ft" />
+      <label for="ft">feet</label>
+      <br />
+      <input type="text" id="inches" name="inches" />
+      <label for="inches">inches</label>
+      <br />
+      <input type="submit" />
+    </form>
+    <p>Your height is: <span id="result"></span></p>
+
+    <script>
+      const formSubmit = document.querySelector("#calculator");
+
+      formSubmit.addEventListener("click", function (e) {
+        e.preventDefault(e);
+        let ft = document.getElementById("ft").value;
+        let inches = document.getElementById("inches").value;
+        let totalInches = parseInt(ft) * 12 + parseInt(inches);
+        console.log(totalInches);
+        cm = totalInches * 2.54;
+        console.log(cm);
+        document.getElementById("result").innerHTML = cm + "cm";
+      });
+
+      // I have commented out a (failed) attempt from the weekend below, updated after today's lesson
+      // on html:20 my submit button had an attribute of onclick = "calcMetric"
+
+      //var ft = document.getElementById("ft");
+      //var inches = document.getElementById("inches");
+
+      //function calcMetric(ft, inches) {
+      // result = (ft * 12 + inches) * 2.54;
+      //  console.log(result);
+      // }
+
+      //document.getElementById("result").innerHTML = result + "cm";
+    </script>
+  </body>
+</html>
